@@ -1,0 +1,43 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+    id 'kotlin-kapt'
+}
+
+apply from: "${rootDir}/plugins/android.gradle"
+apply from: "${rootDir}/plugins/dependencies.gradle"
+
+android {
+    namespace 'com.omdbifood.core'
+}
+
+dependencies {
+    implementation implementations.ktx
+    implementation implementations.kotlinSerializationJson
+    implementation implementations.retrofit
+    implementation implementations.okhttp3
+    implementation implementations.kotlinCoroutinesCore
+    implementation implementations.kotlinCoroutinesAndroid
+    implementation implementations.KSRetrofitConverter
+
+    implementation implementations.roomRuntime
+    implementation implementations.roomKtx
+    implementation implementations.roomCommon
+    implementation implementations.roomPaging
+    implementation implementations.KSJson
+    implementation implementations.KSJsonJvm
+
+    kapt kapts.roomCompiler
+
+    implementation implementations.koinCore
+    testImplementation implementations.roomKtx
+    testImplementation testImplementations.junit
+    androidTestImplementation androidTestImplementations.junit
+
+    testImplementation testImplementations.KCoroutinesTest
+    testImplementation testImplementations.turbineFlowTests
+    testImplementation testImplementations.mockk
+
+    implementation project(path: ':common')
+}

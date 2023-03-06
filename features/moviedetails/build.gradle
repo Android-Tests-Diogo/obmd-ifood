@@ -1,0 +1,22 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: "${rootDir}/plugins/android.gradle"
+apply from: "${rootDir}/plugins/dependencies.gradle"
+
+android {
+    namespace 'com.omdbifood.moviedetails'
+}
+
+dependencies {
+
+    implementation implementations.ktx
+    implementation implementations.appCompat
+    implementation implementations.material
+    implementation implementations.constraintLayout
+    testImplementation testImplementations.junit
+    androidTestImplementation androidTestImplementations.junit
+    androidTestImplementation androidTestImplementations.espresso
+}

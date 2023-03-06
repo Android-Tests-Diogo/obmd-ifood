@@ -1,0 +1,35 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: "${rootDir}/plugins/android.gradle"
+apply from: "${rootDir}/plugins/dependencies.gradle"
+
+android {
+    namespace 'com.omdbifood.sample'
+
+    packagingOptions {
+        pickFirst "**"
+    }
+}
+
+dependencies {
+    implementation implementations.ktx
+    implementation implementations.appCompat
+    implementation implementations.koinCore
+    implementation implementations.koinAndroid
+    implementation implementations.okhttp3
+    implementation implementations.retrofit
+    implementation implementations.KSRetrofitConverter
+    implementation implementations.KSJson
+    implementation implementations.KSJsonJvm
+    implementation implementations.roomRuntime
+    implementation implementations.roomKtx
+    implementation implementations.koinCore
+    implementation implementations.koinAndroid
+
+    implementation project(path: ':core')
+    implementation project(path: ':common:android')
+    implementation project(path: ':features:home')
+}

@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "ombd-ifood"
+include ':app'
+include ':design-system:ui'
+include ':design-system:common'
+include ':features:home'
+include ':features:moviedetails'
+include ':core'
+include ':common'
+include ':common:android'

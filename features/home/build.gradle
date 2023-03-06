@@ -1,0 +1,40 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: "${rootDir}/plugins/android.gradle"
+apply from: "${rootDir}/plugins/dependencies.gradle"
+
+android {
+    buildFeatures {
+        viewBinding true
+    }
+
+    namespace 'com.omdbifood.home'
+}
+
+dependencies {
+
+    implementation implementations.ktx
+    implementation implementations.appCompat
+    implementation implementations.material
+    implementation implementations.constraintLayout
+    testImplementation testImplementations.junit
+    implementation implementations.koinCore
+    implementation implementations.koinAndroid
+    androidTestImplementation androidTestImplementations.junit
+    androidTestImplementation androidTestImplementations.espresso
+
+    testImplementation testImplementations.KCoroutinesTest
+    testImplementation testImplementations.mockk
+    testImplementation testImplementations.turbineFlowTests
+
+    implementation project(path: ':common')
+    implementation project(path: ':core')
+    implementation project(path: ':common:android')
+    implementation project(path: ':design-system:ui')
+
+    testImplementation project(path: ':common:android')
+    androidTestImplementation project(path: ':common:android')
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_search">Buscar</string>
+    <string name="home_favorites">Favoritos</string>
+    <string name="home_movie_not_found">Nenhum resultado encontrado</string>
+    <string name="home_insert_more_than_three_chars">Insira um nome maior que 3 caracteres</string>
+    <string name="home_insert_name_search">Insira um nome para pesquisar</string>
+</resources>

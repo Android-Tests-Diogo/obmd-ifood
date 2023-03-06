@@ -1,0 +1,51 @@
+ext {
+
+    final koinVersion = '3.3.3'
+    final kotlinSerializationVersion = '1.5.0'
+    final kotlinCoroutinesVersion = '1.6.4'
+    final roomVersion = '2.5.0'
+    final lifeCycleVersion = '2.5.1'
+
+
+    implementations = [
+            'ktx'                    : "androidx.core:core-ktx:1.7.0",
+            'appCompat'              : "androidx.appcompat:appcompat:1.6.1",
+            'material'               : "com.google.android.material:material:1.8.0",
+            'constraintLayout'       : "androidx.constraintlayout:constraintlayout:2.1.4",
+            'kotlinSerializationJson': "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1",
+            'retrofit'               : "com.squareup.retrofit2:retrofit:2.9.0",
+            'KSRetrofitConverter'    : "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0",
+            'okhttp3'                : "com.squareup.okhttp3:logging-interceptor:4.2.1",
+            'kotlinCoroutinesCore'   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion",
+            'kotlinCoroutinesAndroid': "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion",
+            'roomRuntime'            : "androidx.room:room-runtime:$roomVersion",
+            'roomKtx'                : "androidx.room:room-ktx:$roomVersion",
+            'roomCommon'             : "androidx.room:room-common:$roomVersion",
+            'roomPaging'             : "androidx.room:room-paging:$roomVersion",
+            'koinCore'               : "io.insert-koin:koin-core:$koinVersion",
+            'koinAndroid'            : "io.insert-koin:koin-android:$koinVersion",
+            'koinAndroidScope'       : "io.insert-koin:koin-androidx-scope:$koinVersion",
+            'koinTest'               : "io.insert-koin:koin-test:$koinVersion",
+            'KSJson'                 : "org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinSerializationVersion",
+            'KSJsonJvm'              : "org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:$kotlinSerializationVersion",
+            'viewModel'              : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleVersion",
+            'liveData'               : "androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleVersion",
+            'mockk'                  : "io.mockk:mockk:1.10.6",
+    ]
+
+    kapts = [
+            'roomCompiler': "androidx.room:room-compiler:2.5.0"
+    ]
+
+    testImplementations = [
+            'junit': "junit:junit:4.13.2",
+            'mockk': "io.mockk:mockk:1.13.4",
+            'KCoroutinesTest': "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4",
+            'turbineFlowTests': "app.cash.turbine:turbine:0.12.1",
+    ]
+
+    androidTestImplementations = [
+            'junit'   : "androidx.test.ext:junit:1.1.5",
+            'espresso': "androidx.test.espresso:espresso-core:3.5.1"
+    ]
+}

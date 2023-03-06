@@ -1,0 +1,23 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+}
+
+apply from: "${rootDir}/plugins/android.gradle"
+apply from: "${rootDir}/plugins/dependencies.gradle"
+
+android {
+    namespace 'com.omdbifood.common'
+}
+
+dependencies {
+    implementation implementations.ktx
+    implementation implementations.appCompat
+    implementation implementations.koinCore
+    implementation implementations.koinAndroid
+    implementation implementations.viewModel
+    implementation implementations.liveData
+
+    implementation implementations.koinTest
+}

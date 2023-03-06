@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/tlContent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/pbInfinityList"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/tlContent" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tlContent"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#6ffc03"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:tabIconTint="#FFFFFFFF" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

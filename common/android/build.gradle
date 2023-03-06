@@ -1,0 +1,37 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: "${rootDir}/plugins/android.gradle"
+apply from: "${rootDir}/plugins/dependencies.gradle"
+
+android {
+    buildFeatures {
+        viewBinding true
+    }
+
+    namespace 'com.omdbifood.android'
+}
+
+dependencies {
+
+    implementation implementations.ktx
+    implementation implementations.appCompat
+    implementation implementations.material
+    implementation project(path: ':common')
+    implementation implementations.koinCore
+    implementation implementations.koinAndroid
+
+    //implementation implementations.mockk
+    implementation testImplementations.junit
+    implementation 'androidx.arch.core:core-testing:2.2.0'
+    androidTestImplementation androidTestImplementations.junit
+
+    //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
+    implementation "io.mockk:mockk:1.13.4"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm:1.6.4'
+}
