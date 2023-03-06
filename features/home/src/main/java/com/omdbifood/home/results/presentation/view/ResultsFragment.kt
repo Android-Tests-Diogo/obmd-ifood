@@ -5,12 +5,12 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.omdbifood.android.viewbinding.viewBinding
 import com.omdbifood.android.koin.KoinFragment
+import com.omdbifood.android.viewbinding.viewBinding
 import com.omdbifood.android.viewmodel.extensions.onSendAction
 import com.omdbifood.android.viewmodel.extensions.onSendState
 import com.omdbifood.home.R
-import com.omdbifood.home.databinding.ResultsFragmentBinding
+import com.omdbifood.home.databinding.HomeResultsFragmentBinding
 import com.omdbifood.home.presentation.view.ResultsAdapter
 import com.omdbifood.home.results.presentation.viewmodel.ResultsUIAction
 import com.omdbifood.home.results.presentation.viewmodel.ResultsUIState
@@ -20,9 +20,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class ResultsFragment(
     private val fetchDataStatus: (Boolean) -> Unit,
     private val favoritesChange: () -> Unit
-) : KoinFragment(R.layout.results_fragment) {
+) : KoinFragment(R.layout.home_results_fragment) {
 
-    private val binding by viewBinding<ResultsFragmentBinding>()
+    private val binding by viewBinding<HomeResultsFragmentBinding>()
     private val viewModel by viewModel<ResultsViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -15,7 +15,6 @@ dependencyResolutionManagement {
 rootProject.name = "ombd-ifood"
 include ':app'
 include ':design-system:ui'
-include ':design-system:common'
 include ':features:home'
 include ':features:moviedetails'
 include ':core'

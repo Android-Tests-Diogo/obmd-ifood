@@ -3,12 +3,12 @@ package com.omdbifood.home.presentation.view
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.google.android.material.tabs.TabLayoutMediator
-import com.omdbifood.android.viewbinding.viewBinding
 import com.omdbifood.android.koin.KoinActivity
+import com.omdbifood.android.viewbinding.viewBinding
 import com.omdbifood.android.viewmodel.extensions.onSendAction
 import com.omdbifood.android.viewmodel.extensions.onSendState
 import com.omdbifood.home.R
-import com.omdbifood.home.databinding.ActivityHomeBinding
+import com.omdbifood.home.databinding.HomeActivityBinding
 import com.omdbifood.home.di.HomeModule
 import com.omdbifood.home.favorites.presentation.view.FavoritesFragment
 import com.omdbifood.home.presentation.viewmodel.HomeUIAction
@@ -21,10 +21,10 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 const val RESULTS_FRAGMENT = 0
 const val MAX_PAGES = 2
 
-class HomeActivity : KoinActivity(R.layout.activity_home, module = HomeModule) {
+class HomeActivity : KoinActivity(R.layout.home_activity, module = HomeModule) {
 
     private val viewModel by viewModel<HomeViewModel>()
-    private val binding by viewBinding<ActivityHomeBinding>(R.id.root)
+    private val binding by viewBinding<HomeActivityBinding>(R.id.root)
     private val resultsFragment = ResultsFragment(
         { isFetchingData ->
             viewModel.onFetchResultsChanged(isFetchingData)

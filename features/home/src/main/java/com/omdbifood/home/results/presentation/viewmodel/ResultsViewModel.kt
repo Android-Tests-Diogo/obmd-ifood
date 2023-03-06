@@ -1,5 +1,6 @@
 package com.omdbifood.home.results.presentation.viewmodel
 
+import android.graphics.drawable.Drawable
 import androidx.lifecycle.viewModelScope
 import com.omdbifood.android.resources.ResourceProvider
 import com.omdbifood.android.viewmodel.ViewModel
@@ -64,9 +65,10 @@ class ResultsViewModel(
                         searchLoadingVisibility = false,
                         results = it.map { entity ->
                             ResultItem(
+                                posterUrl = entity.posterUrl,
                                 movieId = entity.imdbId,
                                 title = entity.title,
-                                favoriteVisibility = entity.isFavorite
+                                favoriteDrawable = getDrawableByFavorite(entity.isFavorite)
                             )
                         }
                     )
@@ -79,6 +81,14 @@ class ResultsViewModel(
                 }
             }
     }
+
+    private fun getDrawableByFavorite(isFavorite: Boolean): Drawable? =
+        if (isFavorite) {
+            resourceProvider.getDrawable(com.omdbifood.ui.R.drawable.ic_favorite)
+        } else {
+            resourceProvider.getDrawable(com.omdbifood.ui.R.drawable.ic_favorite_background)
+        }
+
 
     private fun handleException(exception: Throwable) {
         when (exception) {

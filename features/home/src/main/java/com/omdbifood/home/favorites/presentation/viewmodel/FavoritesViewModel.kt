@@ -23,9 +23,10 @@ class FavoritesViewModel(
                 state.copy(
                     results = it.map { entity ->
                         ResultItem(
+                            posterUrl = entity.posterUrl,
                             movieId = entity.imdbId,
                             title = entity.title,
-                            favoriteVisibility = true
+                            favoriteDrawable = null
                         )
                     }
                 )

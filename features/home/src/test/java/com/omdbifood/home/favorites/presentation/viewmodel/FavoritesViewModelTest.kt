@@ -1,5 +1,6 @@
 package com.omdbifood.home.favorites.presentation.viewmodel
 
+import android.graphics.drawable.Drawable
 import androidx.lifecycle.Observer
 import com.omdbifood.android.CoroutineTestRule
 import com.omdbifood.android.LocalTestRule
@@ -12,6 +13,7 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
 import junit.framework.TestCase.assertEquals
+import junit.framework.TestCase.assertNull
 import junit.framework.TestCase.assertTrue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
@@ -60,6 +62,7 @@ internal class FavoritesViewModelTest {
     @Test
     fun `getFavorites should emit State results from UseCase`() = runTest {
         // Given
+        val drawableStub = mockk<Drawable>()
         every { favoritesUseCaseMock.getAllFavorites() } returns flowOf(listOf(resultEntityStub))
 
         // When
@@ -69,7 +72,7 @@ internal class FavoritesViewModelTest {
         with(stateCaptured.results.first()) {
             assertEquals(FavoritesViewModelStubs.imdbIdStub, movieId)
             assertEquals(titleStub, title)
-            assertTrue(favoriteVisibility)
+            assertNull(favoriteDrawable)
         }
     }
 
@@ -88,7 +91,7 @@ internal class FavoritesViewModelTest {
         with(stateCaptured.results.first()) {
             assertEquals(FavoritesViewModelStubs.imdbIdStub, movieId)
             assertEquals(titleStub, title)
-            assertTrue(favoriteVisibility)
+            assertNull(favoriteDrawable)
         }
         assertEquals(FavoritesUIAction.FavoritesChanged, actionCaptured)
     }

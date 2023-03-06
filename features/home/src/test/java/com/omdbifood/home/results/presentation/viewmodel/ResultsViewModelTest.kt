@@ -78,6 +78,9 @@ internal class ResultsViewModelTest {
         every { resultsInteractorMock.getResults(defaultInputStub, searchPageStub) } returns flowOf(
             resultListStub
         )
+        every {
+            resourceProviderMock.getDrawable(com.omdbifood.ui.R.drawable.ic_favorite)
+        } returns mockk()
 
         // When
         resultsViewModel.syncData()
@@ -90,7 +93,7 @@ internal class ResultsViewModelTest {
             with(results.first()) {
                 assertEquals(resultStub.imdbId, movieId)
                 assertEquals(resultStub.title, title)
-                assertEquals(resultStub.isFavorite, favoriteVisibility)
+                verify { resourceProviderMock.getDrawable(com.omdbifood.ui.R.drawable.ic_favorite) }
             }
         }
         assertTrue(actionsCaptured.first() is ResultsUIAction.SearchAllowed)
@@ -136,6 +139,9 @@ internal class ResultsViewModelTest {
         every { resultsInteractorMock.getResults(defaultInputStub, nextPageStub) } returns flowOf(
             listOf(resultEntityStub)
         )
+        every {
+            resourceProviderMock.getDrawable(com.omdbifood.ui.R.drawable.ic_favorite_background)
+        } returns mockk()
 
         // When
         resultsViewModel.onLastResultReached()
