@@ -20,4 +20,6 @@ internal object ResultsViewModelTestStubs {
         posterUrl = posterUrlStub,
         isFavorite = false
     )
+    const val toastGenericMessageStub = "toastGenericMessageStub"
+    object TestException : Exception()
 }

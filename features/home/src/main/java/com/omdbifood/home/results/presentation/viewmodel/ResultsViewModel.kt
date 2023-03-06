@@ -52,11 +52,11 @@ class ResultsViewModel(
                     )
                 }
 
-                handleException(exception)
-
                 sendAction {
                     ResultsUIAction.FetchingDataStatus(false)
                 }
+
+                handleException(exception)
             }
             .collect {
                 setState { state ->
@@ -86,7 +86,7 @@ class ResultsViewModel(
             is ResultsExceptions.MinCharsAccepted -> sendToastAction(
                 R.string.home_insert_more_than_three_chars
             )
-            else -> sendToastAction(R.string.home_movie_not_found)
+            else -> sendToastAction(R.string.home_movie_error_message)
         }
     }
 

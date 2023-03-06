@@ -6,7 +6,9 @@ import com.omdbifood.android.LocalTestRule
 import com.omdbifood.android.ViewModelTestRule
 import com.omdbifood.android.extensions.second
 import com.omdbifood.android.extensions.third
+import com.omdbifood.android.resources.ResourceProvider
 import com.omdbifood.common.database.FlowGenericResult
+import com.omdbifood.core.results.data.remote.exceptions.ResultsExceptions
 import com.omdbifood.home.favorites.presentation.viewmodel.FavoritesViewModelStubs.imdbIdStub
 import com.omdbifood.home.results.domain.ResultsInteractor
 import com.omdbifood.home.results.presentation.viewmodel.ResultsViewModelTestStubs.defaultInputStub
@@ -14,6 +16,8 @@ import com.omdbifood.home.results.presentation.viewmodel.ResultsViewModelTestStu
 import com.omdbifood.home.results.presentation.viewmodel.ResultsViewModelTestStubs.searchPageStub
 import com.omdbifood.home.results.presentation.viewmodel.ResultsViewModelTestStubs.resultEntityStub
 import com.omdbifood.home.results.presentation.viewmodel.ResultsViewModelTestStubs.searchInputStub
+import com.omdbifood.home.R
+import com.omdbifood.home.results.presentation.viewmodel.ResultsViewModelTestStubs.toastGenericMessageStub
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
@@ -21,6 +25,7 @@ import io.mockk.verify
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertFalse
 import junit.framework.TestCase.assertTrue
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import org.junit.After
 import org.junit.Before
@@ -29,6 +34,7 @@ import org.junit.Test
 
 internal class ResultsViewModelTest {
 
+    private val resourceProviderMock = mockk<ResourceProvider>()
     private val resultsInteractorMock = mockk<ResultsInteractor>()
     private lateinit var resultsViewModel: ResultsViewModel
 
@@ -51,7 +57,8 @@ internal class ResultsViewModelTest {
     @Before
     fun setUp() {
         resultsViewModel = ResultsViewModel(
-            resultsInteractor = resultsInteractorMock
+            resultsInteractor = resultsInteractorMock,
+            resourceProvider = resourceProviderMock
         )
 
         every { stateObserver.onChanged(capture(stateObserverSlot)) } answers {
@@ -134,9 +141,72 @@ internal class ResultsViewModelTest {
         resultsViewModel.onLastResultReached()
 
         // Then
-        assertTrue(statesCaptured.first().searchLoadingVisibility)
+        assertFalse(statesCaptured.first().searchLoadingVisibility)
         assertTrue((actionsCaptured.first() as ResultsUIAction.FetchingDataStatus).isFetchingData)
         verify { resultsInteractorMock.getResults(defaultInputStub, nextPageStub) }
+    }
+
+    @Test
+    fun `getResults should send ShowToast action when throw NoResultsFound exception`() {
+        // Given
+        every { resultsInteractorMock.getResults(searchInputStub, searchPageStub) } returns flow {
+            throw ResultsExceptions.NoResultsFound
+        }
+        every {
+            resourceProviderMock.getString(R.string.home_movie_not_found)
+        } returns toastGenericMessageStub
+
+        // When
+        resultsViewModel.getResults(searchInputStub)
+
+        // Then
+        assertFalse(statesCaptured.last().searchLoadingVisibility)
+        assertEquals(
+            (actionsCaptured.last() as ResultsUIAction.ShowToast).message,
+            toastGenericMessageStub
+        )
+    }
+
+    @Test
+    fun `getResults should send ShowToast action when throw MinCharsAccepted exception`() {
+        // Given
+        every { resultsInteractorMock.getResults(searchInputStub, searchPageStub) } returns flow {
+            throw ResultsExceptions.MinCharsAccepted
+        }
+        every {
+            resourceProviderMock.getString(R.string.home_insert_more_than_three_chars)
+        } returns toastGenericMessageStub
+
+        // When
+        resultsViewModel.getResults(searchInputStub)
+
+        // Then
+        assertFalse(statesCaptured.last().searchLoadingVisibility)
+        assertEquals(
+            (actionsCaptured.last() as ResultsUIAction.ShowToast).message,
+            toastGenericMessageStub
+        )
+    }
+
+    @Test
+    fun `getResults should send ShowToast action when throw Any exception`() {
+        // Given
+        every { resultsInteractorMock.getResults(searchInputStub, searchPageStub) } returns flow {
+            throw ResultsViewModelTestStubs.TestException
+        }
+        every {
+            resourceProviderMock.getString(R.string.home_movie_error_message)
+        } returns toastGenericMessageStub
+
+        // When
+        resultsViewModel.getResults(searchInputStub)
+
+        // Then
+        assertFalse(statesCaptured.last().searchLoadingVisibility)
+        assertEquals(
+            (actionsCaptured.last() as ResultsUIAction.ShowToast).message,
+            toastGenericMessageStub
+        )
     }
 
     @After
