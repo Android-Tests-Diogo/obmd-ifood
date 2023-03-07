@@ -6,4 +6,5 @@
     <string name="home_movie_error_message">Houve um erro ao processar</string>
     <string name="home_insert_more_than_three_chars">Insira um nome maior que 3 caracteres</string>
     <string name="home_insert_name_search">Insira um nome para pesquisar</string>
+    <string name="home_no_favorites_found">Nenhum favorito encontrado, você pode adicionar favoritos na a aba Buscar.</string>
 </resources>

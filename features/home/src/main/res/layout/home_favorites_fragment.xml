@@ -11,4 +11,14 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNoFavoritesFound"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/ds_margin_20dp"
+        android:text="@string/home_no_favorites_found"
+        android:gravity="center"
+        android:textSize="@dimen/ds_text_size"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

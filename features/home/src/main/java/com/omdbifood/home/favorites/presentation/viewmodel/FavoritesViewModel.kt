@@ -24,6 +24,7 @@ class FavoritesViewModel(
         favoritesUseCase.getAllFavorites().collect {
             setState { state ->
                 state.copy(
+                    noFavoritesFoundTextVisibility = it.isEmpty(),
                     results = it.map { entity ->
                         ResultItem(
                             posterUrl = entity.posterUrl,

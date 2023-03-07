@@ -1,7 +1,7 @@
 package com.omdbifood.core.results.data.remote.datasource
 
 import com.omdbifood.core.results.data.remote.model.ResultResponse
-import com.omdbifood.core.results.data.remote.model.ResultsResponse
+import com.omdbifood.core.results.data.remote.model.ResultsSuccessResponse
 
 internal object ResultsRemoteDataSourceImplStubs {
     const val invalidCharStubStub = "ma"
@@ -12,7 +12,7 @@ internal object ResultsRemoteDataSourceImplStubs {
     const val imdbIdStub= "imdbId"
     const val typeStub = "movie"
     const val posterUrlStub = "posterUrl"
-    val resultResponseStub = ResultsResponse(
+    val resultResponseStub = ResultsSuccessResponse(
         results = listOf(
             ResultResponse(
                 title = titleStub,

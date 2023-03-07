@@ -1,7 +1,7 @@
 package com.omdbifood.core.data.remote
 
 import com.omdbifood.core.results.data.remote.model.ResultResponse
-import com.omdbifood.core.results.data.remote.model.ResultsResponse
+import com.omdbifood.core.results.data.remote.model.ResultsSuccessResponse
 
 internal object ResultResponseToResultEntityMapperStubs {
     const val resultTitleStub = "resultTitleStub"
@@ -9,7 +9,7 @@ internal object ResultResponseToResultEntityMapperStubs {
     const val resultImdbIdStub = "resultImdbIdStub"
     const val resultTypeStub = "movie"
     const val resultPosterUrlStub = "resultPosterUrlStub"
-    val resultsResponseStub = ResultsResponse(
+    val resultsResponseStub = ResultsSuccessResponse(
         results = listOf(
             ResultResponse(
                 title = resultTitleStub,

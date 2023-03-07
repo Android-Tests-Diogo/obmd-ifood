@@ -2,7 +2,8 @@ package com.omdbifood.core.results.data.remote.datasource
 
 import com.omdbifood.common.mapper.Mapper
 import com.omdbifood.core.results.data.remote.exceptions.ResultsExceptions
-import com.omdbifood.core.results.data.remote.model.ResultsResponse
+import com.omdbifood.core.results.data.remote.model.ResultsErrorResponse
+import com.omdbifood.core.results.data.remote.model.ResultsSuccessResponse
 import com.omdbifood.core.results.data.remote.service.ResultsService
 import com.omdbifood.core.results.domain.ResultEntity
 import kotlinx.coroutines.flow.Flow
@@ -12,7 +13,7 @@ const val MIN_INPUT_ACCEPTABLE_COUNT = 3
 
 class ResultsRemoteDataSourceImpl(
     private val service: ResultsService,
-    private val mapper: Mapper<ResultsResponse, List<ResultEntity>>
+    private val mapper: Mapper<ResultsSuccessResponse, List<ResultEntity>>
 ) : ResultsRemoteDataSource {
 
     override fun getResults(name: String, page: Int): Flow<List<ResultEntity>> =
@@ -22,10 +23,10 @@ class ResultsRemoteDataSourceImpl(
             } else {
                 val result = service.fetchMovies(name, page)
 
-                if (result.results.isEmpty() || result.response.not()) {
+                if (result is ResultsErrorResponse) {
                     throw ResultsExceptions.NoResultsFound
                 } else {
-                    emit(mapper.map(result))
+                    emit(mapper.map(result as ResultsSuccessResponse))
                 }
             }
         }

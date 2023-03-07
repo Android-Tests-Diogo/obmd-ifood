@@ -2,6 +2,7 @@ package com.omdbifood.home.favorites.presentation.view
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.omdbifood.android.koin.KoinFragment
@@ -50,6 +51,7 @@ class FavoritesFragment(
 
     private fun onStateUpdate(state: FavoriteUIState) {
         binding.rvMovies.updateItems(state.results)
+        binding.tvNoFavoritesFound.isVisible = state.noFavoritesFoundTextVisibility
     }
 
     private fun RecyclerView.updateItems(items: List<ResultItem>) {

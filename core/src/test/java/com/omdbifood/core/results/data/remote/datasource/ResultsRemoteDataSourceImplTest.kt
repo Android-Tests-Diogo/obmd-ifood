@@ -12,6 +12,7 @@ import com.omdbifood.core.results.data.remote.datasource.ResultsRemoteDataSource
 import com.omdbifood.core.results.data.remote.datasource.ResultsRemoteDataSourceImplStubs.typeStub
 import com.omdbifood.core.results.data.remote.datasource.ResultsRemoteDataSourceImplStubs.yearStub
 import com.omdbifood.core.results.data.remote.exceptions.ResultsExceptions
+import com.omdbifood.core.results.data.remote.model.ResultsErrorResponse
 import com.omdbifood.core.results.data.remote.service.ResultsService
 import com.omdbifood.core.results.domain.ResultTypeEntity
 import io.mockk.coEvery
@@ -20,6 +21,8 @@ import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertTrue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
+import kotlinx.serialization.json.Json
+import org.intellij.lang.annotations.Language
 import org.junit.Test
 
 
@@ -55,7 +58,7 @@ internal class ResultsRemoteDataSourceImplTest {
     }
 
     @Test
-    fun `getResults should throw NoResultsFound when results list is empty`() =
+    fun `getResults should throw NoResultsFound exception when deserlializer response error`() =
         runTest {
             // Given
             coEvery {
@@ -63,31 +66,7 @@ internal class ResultsRemoteDataSourceImplTest {
                     movieNameStub,
                     pageStub
                 )
-            } returns resultResponseStub.copy(
-                results = listOf()
-            )
-
-            // When
-            remoteDataSource.getResults(movieNameStub, pageStub).test {
-                // Then
-                with(awaitError()) {
-                    assertTrue(this is ResultsExceptions.NoResultsFound)
-                }
-            }
-        }
-
-    @Test
-    fun `getResults should throw NoResultsFound exception when field response is false`() =
-        runTest {
-            // Given
-            coEvery {
-                serviceMock.fetchMovies(
-                    movieNameStub,
-                    pageStub
-                )
-            } returns resultResponseStub.copy(
-                response = false
-            )
+            } returns mockk<ResultsErrorResponse>()
 
             // When
             remoteDataSource.getResults(movieNameStub, pageStub).test {
