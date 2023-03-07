@@ -9,8 +9,8 @@ abstract class ViewModel<State : UIState, Action : UIAction>(
     private val viewModelState = com.omdbifood.android.viewmodel.livedata.State(initialState)
     private val viewModelAction = com.omdbifood.android.viewmodel.livedata.Action<Action>()
 
-    val state: LiveData<State> = viewModelState.state
-    val action: LiveData<Action> = viewModelAction.action
+    val state: LiveData<State> = viewModelState.stateProperty
+    val action: LiveData<Action> = viewModelAction.actionProperty
 
     protected fun setState(state: (State) -> State) {
         viewModelState.setState(state)

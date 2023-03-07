@@ -1,7 +1,7 @@
 package com.omdbifood.home.favorites.presentation.viewmodel
 
-import com.omdbifood.home.presentation.view.ResultItem
 import com.omdbifood.home.common.MoviesUIState
+import com.omdbifood.home.presentation.view.ResultItem
 
 data class FavoriteUIState(
     val noFavoritesFoundTextVisibility: Boolean = false,

@@ -6,8 +6,8 @@ import com.omdbifood.core.data.remote.ResultResponseToResultEntityMapperStubs.re
 import com.omdbifood.core.data.remote.ResultResponseToResultEntityMapperStubs.resultTypeStub
 import com.omdbifood.core.data.remote.ResultResponseToResultEntityMapperStubs.resultYearStub
 import com.omdbifood.core.data.remote.ResultResponseToResultEntityMapperStubs.resultsResponseStub
-import com.omdbifood.core.results.domain.ResultTypeEntity
 import com.omdbifood.core.results.data.remote.ResultResponseToResultEntityMapper
+import com.omdbifood.core.results.domain.ResultTypeEntity
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertTrue
 import org.junit.Test

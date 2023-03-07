@@ -1,6 +1,5 @@
 package com.omdbifood.home.favorites.presentation.viewmodel
 
-import android.graphics.drawable.Drawable
 import androidx.lifecycle.Observer
 import com.omdbifood.android.CoroutineTestRule
 import com.omdbifood.android.LocalTestRule

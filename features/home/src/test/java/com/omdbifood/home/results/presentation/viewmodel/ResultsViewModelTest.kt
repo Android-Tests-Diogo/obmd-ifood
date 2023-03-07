@@ -9,14 +9,14 @@ import com.omdbifood.android.extensions.third
 import com.omdbifood.android.resources.ResourceProvider
 import com.omdbifood.common.database.FlowGenericResult
 import com.omdbifood.core.results.data.remote.exceptions.ResultsExceptions
+import com.omdbifood.home.R
 import com.omdbifood.home.favorites.presentation.viewmodel.FavoritesViewModelStubs.imdbIdStub
 import com.omdbifood.home.results.domain.ResultsInteractor
 import com.omdbifood.home.results.presentation.viewmodel.ResultsViewModelTestStubs.defaultInputStub
 import com.omdbifood.home.results.presentation.viewmodel.ResultsViewModelTestStubs.nextPageStub
-import com.omdbifood.home.results.presentation.viewmodel.ResultsViewModelTestStubs.searchPageStub
 import com.omdbifood.home.results.presentation.viewmodel.ResultsViewModelTestStubs.resultEntityStub
 import com.omdbifood.home.results.presentation.viewmodel.ResultsViewModelTestStubs.searchInputStub
-import com.omdbifood.home.R
+import com.omdbifood.home.results.presentation.viewmodel.ResultsViewModelTestStubs.searchPageStub
 import com.omdbifood.home.results.presentation.viewmodel.ResultsViewModelTestStubs.toastGenericMessageStub
 import io.mockk.every
 import io.mockk.mockk

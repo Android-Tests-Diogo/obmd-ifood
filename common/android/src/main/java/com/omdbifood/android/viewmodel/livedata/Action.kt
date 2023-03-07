@@ -9,7 +9,7 @@ class Action<Action : UIAction> {
 
     private val _action: MutableLiveData<Action> =
         ViewModelPlugins.factory.createMutableLiveDataAction()
-    val action: LiveData<Action> = _action
+    val actionProperty: LiveData<Action> = _action
 
     fun sendAction(action: () -> Action) {
         _action.value = action()
