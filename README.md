@@ -1,4 +1,4 @@
-# iFood Teste omdb Api
+# iFood Teste omdb Api (CI GitHub Actions)
 
 > Neste app é possível fazer buscas de Filmes/Series e salvar favoritos.
 
@@ -8,7 +8,6 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 - [x] Navegação entre features
 - [x] Feature de detalhes
-- [x] CI usando GitHub Actions
 
 ## 🚀 Frameworks utilizados
 
