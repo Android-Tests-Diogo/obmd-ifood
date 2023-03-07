@@ -89,6 +89,11 @@ internal class FavoritesViewModelTest {
         every {
             favoritesUseCaseMock.manageFavorite(titleStub)
         } returns flowOf(FlowGenericResult.Successful)
+        every {
+            resourceProviderMock.getDrawable(
+                com.omdbifood.ui.R.drawable.ic_favorite
+            )
+        } returns mockk()
 
         // When
         favoritesViewModel.onFavoritesManagerClicked(titleStub)
@@ -97,8 +102,12 @@ internal class FavoritesViewModelTest {
         with(stateCaptured.results.first()) {
             assertEquals(FavoritesViewModelStubs.imdbIdStub, movieId)
             assertEquals(titleStub, title)
-            assertNull(favoriteDrawable)
         }
         assertEquals(FavoritesUIAction.FavoritesChanged, actionCaptured)
+        verify {
+            resourceProviderMock.getDrawable(
+                com.omdbifood.ui.R.drawable.ic_favorite
+            )
+        }
     }
 }
