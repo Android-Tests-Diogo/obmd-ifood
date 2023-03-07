@@ -41,8 +41,6 @@ class ResultsAdapter(private val manageFavorites: (String) -> Unit) :
 
                 Glide.with(itemView)
                     .load(item.posterUrl)
-                    //.placeholder(R.drawable.ic_githubprofile)
-                    //.fallback(R.drawable.ic_githubprofile)
                     .dontAnimate()
                     .into(binding.ivPoster)
             }
