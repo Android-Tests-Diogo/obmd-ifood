@@ -3,15 +3,16 @@ package com.omdbifood.home.presentation.view
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
-import com.omdbifood.android.recyclerView.BaseListAdapter
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import com.bumptech.glide.Glide
 import com.omdbifood.android.recyclerView.BaseViewHolder
 import com.omdbifood.android.viewbinding.viewBinding
 import com.omdbifood.home.R
 import com.omdbifood.home.databinding.HomeResultsItemLayoutBinding
 
 class ResultsAdapter(private val manageFavorites: (String) -> Unit) :
-    BaseListAdapter<ResultItem, ResultsAdapter.ViewHolder>() {
+    ListAdapter<ResultItem, ResultsAdapter.ViewHolder>(ResultsDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(
@@ -37,7 +38,22 @@ class ResultsAdapter(private val manageFavorites: (String) -> Unit) :
                     manageFavorites.invoke(item.movieId)
                 }
                 vFavorites.background = item.favoriteDrawable
+
+                Glide.with(itemView)
+                    .load(item.posterUrl)
+                    //.placeholder(R.drawable.ic_githubprofile)
+                    //.fallback(R.drawable.ic_githubprofile)
+                    .dontAnimate()
+                    .into(binding.ivPoster)
             }
         }
+    }
+
+    class ResultsDiffUtil : DiffUtil.ItemCallback<ResultItem>() {
+        override fun areItemsTheSame(oldItem: ResultItem, newItem: ResultItem): Boolean =
+            oldItem.movieId == newItem.movieId
+
+        override fun areContentsTheSame(oldItem: ResultItem, newItem: ResultItem): Boolean =
+            oldItem.isFavoriteForDiffUtilContent == newItem.isFavoriteForDiffUtilContent
     }
 }

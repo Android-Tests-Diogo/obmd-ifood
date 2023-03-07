@@ -25,7 +25,8 @@ object HomeModule : FeatureModule {
             }
             viewModel {
                 FavoritesViewModel(
-                    favoritesUseCase = get()
+                    favoritesUseCase = get(),
+                    resourceProvider = get()
                 )
             }
             factory {

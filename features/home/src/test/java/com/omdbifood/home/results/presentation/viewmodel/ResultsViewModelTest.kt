@@ -93,6 +93,7 @@ internal class ResultsViewModelTest {
             with(results.first()) {
                 assertEquals(resultStub.imdbId, movieId)
                 assertEquals(resultStub.title, title)
+                assertTrue(isFavoriteForDiffUtilContent)
                 verify { resourceProviderMock.getDrawable(com.omdbifood.ui.R.drawable.ic_favorite) }
             }
         }
@@ -147,6 +148,7 @@ internal class ResultsViewModelTest {
         resultsViewModel.onLastResultReached()
 
         // Then
+        assertFalse(statesCaptured.first().results.first().isFavoriteForDiffUtilContent)
         assertFalse(statesCaptured.first().searchLoadingVisibility)
         assertTrue((actionsCaptured.first() as ResultsUIAction.FetchingDataStatus).isFetchingData)
         verify { resultsInteractorMock.getResults(defaultInputStub, nextPageStub) }

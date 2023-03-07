@@ -1,14 +1,14 @@
 package com.omdbifood.ui.components.infiniterecyclerview
 
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.omdbifood.android.recyclerView.BaseListAdapter
 import com.omdbifood.android.recyclerView.BaseViewHolder
 
 const val ITEMS_PER_PAGE = 10
 
-internal class InfiniteRecyclerViewHandler<I , VH : BaseViewHolder<I>>(
-    private val adapter: BaseListAdapter<I, VH>,
+class InfiniteRecyclerViewHandler<I , VH : BaseViewHolder<I>>(
+    private val adapter: ListAdapter<I, VH>,
     private val layoutManager: LinearLayoutManager,
     private val reachedLastItemCallback: () -> Unit
 ) : RecyclerView.OnScrollListener() {

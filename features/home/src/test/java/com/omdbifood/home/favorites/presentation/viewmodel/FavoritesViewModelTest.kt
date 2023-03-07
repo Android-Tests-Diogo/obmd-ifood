@@ -5,6 +5,7 @@ import androidx.lifecycle.Observer
 import com.omdbifood.android.CoroutineTestRule
 import com.omdbifood.android.LocalTestRule
 import com.omdbifood.android.ViewModelTestRule
+import com.omdbifood.android.resources.ResourceProvider
 import com.omdbifood.common.database.FlowGenericResult
 import com.omdbifood.home.favorites.domain.FavoritesUseCase
 import com.omdbifood.home.favorites.presentation.viewmodel.FavoritesViewModelStubs.resultEntityStub
@@ -12,6 +13,7 @@ import com.omdbifood.home.favorites.presentation.viewmodel.FavoritesViewModelStu
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
+import io.mockk.verify
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertNull
 import junit.framework.TestCase.assertTrue
@@ -34,6 +36,7 @@ internal class FavoritesViewModelTest {
     @get:Rule
     val coroutineRule = CoroutineTestRule()
 
+    private val resourceProviderMock = mockk<ResourceProvider>()
     private val favoritesUseCaseMock = mockk<FavoritesUseCase>()
     private lateinit var favoritesViewModel: FavoritesViewModel
 
@@ -47,7 +50,8 @@ internal class FavoritesViewModelTest {
     @Before
     fun setUp() {
         favoritesViewModel = FavoritesViewModel(
-            favoritesUseCase = favoritesUseCaseMock
+            favoritesUseCase = favoritesUseCaseMock,
+            resourceProvider = resourceProviderMock
         )
 
         every { stateObserver.onChanged(capture(stateObserverSlot)) } answers {
@@ -64,6 +68,9 @@ internal class FavoritesViewModelTest {
         // Given
         val drawableStub = mockk<Drawable>()
         every { favoritesUseCaseMock.getAllFavorites() } returns flowOf(listOf(resultEntityStub))
+        every {
+            resourceProviderMock.getDrawable(com.omdbifood.ui.R.drawable.ic_favorite)
+        } returns mockk()
 
         // When
         favoritesViewModel.getFavorites()
@@ -71,8 +78,9 @@ internal class FavoritesViewModelTest {
         // Then
         with(stateCaptured.results.first()) {
             assertEquals(FavoritesViewModelStubs.imdbIdStub, movieId)
+            assertTrue(isFavoriteForDiffUtilContent)
             assertEquals(titleStub, title)
-            assertNull(favoriteDrawable)
+            verify { resourceProviderMock.getDrawable(com.omdbifood.ui.R.drawable.ic_favorite) }
         }
     }
 

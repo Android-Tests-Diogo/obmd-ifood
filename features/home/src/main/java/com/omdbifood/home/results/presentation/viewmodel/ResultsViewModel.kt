@@ -68,6 +68,7 @@ class ResultsViewModel(
                                 posterUrl = entity.posterUrl,
                                 movieId = entity.imdbId,
                                 title = entity.title,
+                                isFavoriteForDiffUtilContent = entity.isFavorite,
                                 favoriteDrawable = getDrawableByFavorite(entity.isFavorite)
                             )
                         }

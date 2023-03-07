@@ -6,5 +6,6 @@ data class ResultItem(
     val posterUrl: String,
     val movieId: String,
     val title: String,
+    val isFavoriteForDiffUtilContent:Boolean = false,
     val favoriteDrawable: Drawable?
 )

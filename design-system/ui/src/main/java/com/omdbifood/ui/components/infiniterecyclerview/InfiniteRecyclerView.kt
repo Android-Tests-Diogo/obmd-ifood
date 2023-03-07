@@ -4,8 +4,8 @@ import android.content.Context
 import android.util.AttributeSet
 import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.omdbifood.android.recyclerView.BaseListAdapter
 import com.omdbifood.android.recyclerView.BaseViewHolder
 import com.omdbifood.ui.R
 
@@ -28,7 +28,7 @@ class InfiniteRecyclerView<I, VH : BaseViewHolder<I>> : FrameLayout {
     }
 
     fun initialize(
-        adapter: BaseListAdapter<I, VH>,
+        adapter: ListAdapter<I, VH>,
         layoutManager: LinearLayoutManager,
         onNextPage: () -> Unit
     ) {
@@ -60,7 +60,7 @@ class InfiniteRecyclerView<I, VH : BaseViewHolder<I>> : FrameLayout {
 
     fun submitItems(items: List<I>) {
         if (isInitialized) {
-            (rv.adapter as BaseListAdapter<I, VH>).submitList(items)
+            (rv.adapter as ListAdapter<I, VH>).submitList(items)
         } else {
             throw InfiniteRecyclerViewExceptions.NotInitializedException()
         }
