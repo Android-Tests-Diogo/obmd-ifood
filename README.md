@@ -20,9 +20,10 @@ Kotlin Coroutines - Para operações assincronas<br />
 Koin - Injeção de dependencia<br />
 Mockk - Mock de dependencias<br />
 Turbine - Testes unitários usando Flow<br />
-Junit - Testes unitários
-Kotlin Serialization - Para Serialização/Deserialização de dados
-Glide - Carregador e cacheador de imagens
+Junit - Testes unitários<br />
+Kotlin Serialization - Para Serialização/Deserialização de dados<br />
+Glide - Carregador e cacheador de imagens<br />
+Detekt - Analise Estática
 
 ## 🚀 Arquitetura
 
