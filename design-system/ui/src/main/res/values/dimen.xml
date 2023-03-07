@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ds_margin_20dp">20dp</dimen>
+    <dimen name="ds_margin_30dp">30dp</dimen>
+    <dimen name="ds_margin_50dp">50dp</dimen>
+    <dimen name="ds_pb_height">48dp</dimen>
+
+    <dimen name="ds_text_size">30sp</dimen>
+</resources>

@@ -7,7 +7,7 @@ apply from: "${rootDir}/plugins/android.gradle"
 apply from: "${rootDir}/plugins/dependencies.gradle"
 
 android {
-    //resourcePrefix "home"
+    resourcePrefix "home"
 
     buildFeatures {
         viewBinding true

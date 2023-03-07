@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="250dp">
+    android:layout_height="@dimen/home_item_height_dp">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivPoster"
-        android:layout_width="150dp"
+        android:layout_width="@dimen/home_item_image_width_dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -15,24 +15,22 @@
 
     <View
         android:id="@+id/vFavorites"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="50dp"
+        android:layout_width="@dimen/home_item_favorites_size_dp"
+        android:layout_height="@dimen/home_item_favorites_size_dp"
+        android:layout_marginEnd="@dimen/ds_margin_50dp"
         android:background="@drawable/ic_favorite_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="@dimen/ds_margin_30dp"
         android:gravity="end"
-        android:textSize="30dp"
+        android:textSize="@dimen/ds_text_size"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Madagascar" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

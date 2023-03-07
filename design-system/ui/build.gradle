@@ -7,6 +7,12 @@ apply from: "${rootDir}/plugins/android.gradle"
 apply from: "${rootDir}/plugins/dependencies.gradle"
 
 android {
+    lintOptions{
+        disable 'MissingDefaultResource'
+    }
+
+    resourcePrefix "ds"
+
     namespace 'com.omdbifood.ui'
 }
 

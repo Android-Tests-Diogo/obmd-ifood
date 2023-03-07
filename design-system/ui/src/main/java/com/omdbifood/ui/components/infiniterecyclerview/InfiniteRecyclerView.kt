@@ -24,7 +24,7 @@ class InfiniteRecyclerView<I, VH : BaseViewHolder<I>> : FrameLayout {
     private var infiniteHandler: InfiniteRecyclerViewHandler<I, VH>? = null
 
     init {
-        inflate(context, R.layout.infinite_recycler_view, this)
+        inflate(context, R.layout.ds_infinite_recycler_view, this)
     }
 
     fun initialize(

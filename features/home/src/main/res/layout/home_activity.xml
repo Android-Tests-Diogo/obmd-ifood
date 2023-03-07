@@ -15,7 +15,7 @@
     <ProgressBar
         android:id="@+id/pbInfinityList"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="@dimen/ds_pb_height"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/tlContent" />
 
@@ -23,8 +23,7 @@
         android:id="@+id/tlContent"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#6ffc03"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:tabIconTint="#FFFFFFFF" />
+        android:background="@color/ds_green_lemon"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

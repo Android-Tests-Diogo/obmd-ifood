@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="home_item_height_dp">250dp</dimen>
+    <dimen name="home_item_image_width_dp">150dp</dimen>
+    <dimen name="home_item_favorites_size_dp">100dp</dimen>
+</resources>
