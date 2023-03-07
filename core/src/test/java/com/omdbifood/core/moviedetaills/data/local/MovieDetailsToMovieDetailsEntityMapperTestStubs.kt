@@ -1,7 +1,6 @@
 package com.omdbifood.core.moviedetaills.data.local
 
 import com.omdbifood.core.moviedetaills.data.local.model.MovieDetails
-import com.omdbifood.core.moviedetaills.data.local.model.Ratings
 
 internal object MovieDetailsToMovieDetailsEntityMapperTestStubs {
 
@@ -19,12 +18,6 @@ internal object MovieDetailsToMovieDetailsEntityMapperTestStubs {
     private const val countryStub = "countryStub"
     private const val awardsStub = "awardsStub"
     const val posterUrlStub = "posterUrlStub"
-    private const val ratingsResponseSourceStub = "ratingsResponseSourceStub"
-    private const val ratingsResponseValueStub = "ratingsResponseValueStub"
-    private val ratingsStub = Ratings(
-        source = ratingsResponseSourceStub,
-        value = ratingsResponseValueStub
-    )
     private const val metaScoreStub = "metaScoreStub"
     const val imdbRatingStub = "imdbRatingStub"
     private const val imdbVotesStub = "imdbVotesStub"

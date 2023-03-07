@@ -1,7 +1,6 @@
 package com.omdbifood.home.di
 
 import com.omdbifood.android.koin.FeatureModule
-import com.omdbifood.android.resources.ResourceProvider
 import com.omdbifood.core.results.di.resultsDataModule
 import com.omdbifood.core.results.favorites.di.favoritesDataModule
 import com.omdbifood.home.favorites.domain.FavoritesUseCase

@@ -17,8 +17,6 @@ import com.omdbifood.core.moviedetaills.data.local.MovieDetailsResponseToMovieDe
 import com.omdbifood.core.moviedetaills.data.local.MovieDetailsResponseToMovieDetailsMapperTestStubs.posterUrlStub
 import com.omdbifood.core.moviedetaills.data.local.MovieDetailsResponseToMovieDetailsMapperTestStubs.productionStub
 import com.omdbifood.core.moviedetaills.data.local.MovieDetailsResponseToMovieDetailsMapperTestStubs.ratedStub
-import com.omdbifood.core.moviedetaills.data.local.MovieDetailsResponseToMovieDetailsMapperTestStubs.ratingsResponseSourceStub
-import com.omdbifood.core.moviedetaills.data.local.MovieDetailsResponseToMovieDetailsMapperTestStubs.ratingsResponseValueStub
 import com.omdbifood.core.moviedetaills.data.local.MovieDetailsResponseToMovieDetailsMapperTestStubs.releasedStub
 import com.omdbifood.core.moviedetaills.data.local.MovieDetailsResponseToMovieDetailsMapperTestStubs.runtimeStub
 import com.omdbifood.core.moviedetaills.data.local.MovieDetailsResponseToMovieDetailsMapperTestStubs.titleStub
@@ -27,7 +25,6 @@ import com.omdbifood.core.moviedetaills.data.local.MovieDetailsResponseToMovieDe
 import com.omdbifood.core.moviedetaills.data.local.MovieDetailsResponseToMovieDetailsMapperTestStubs.writerStub
 import com.omdbifood.core.moviedetaills.data.local.MovieDetailsResponseToMovieDetailsMapperTestStubs.yearStub
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
 import org.junit.Test
 
 internal class MovieDetailsResponseToMovieDetailsMapperTest {

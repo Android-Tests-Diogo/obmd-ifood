@@ -5,8 +5,8 @@ import com.omdbifood.core.results.domain.ResultEntity
 import kotlinx.coroutines.flow.Flow
 
 interface FavoritesLocalDataSource {
-    fun addFavorite(resultEntity: ResultEntity) : Flow<FlowGenericResult>
-    fun removeFavorite(imdbId: String) : Flow<FlowGenericResult>
+    fun addFavorite(resultEntity: ResultEntity): Flow<FlowGenericResult>
+    fun removeFavorite(imdbId: String): Flow<FlowGenericResult>
     fun getAllFavorites(): Flow<List<ResultEntity>>
-    fun removeAllFavorites() : Flow<FlowGenericResult>
+    fun removeAllFavorites(): Flow<FlowGenericResult>
 }

@@ -90,7 +90,6 @@ class ResultsViewModel(
             resourceProvider.getDrawable(com.omdbifood.ui.R.drawable.ic_favorite_background)
         }
 
-
     private fun handleException(exception: Throwable) {
         when (exception) {
             is ResultsExceptions.NoResultsFound -> sendToastAction(R.string.home_movie_not_found)

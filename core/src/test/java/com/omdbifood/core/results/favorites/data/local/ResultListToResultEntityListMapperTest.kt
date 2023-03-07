@@ -5,7 +5,6 @@ import com.omdbifood.core.results.favorites.data.local.ResultListToResultEntityL
 import com.omdbifood.core.results.favorites.data.local.ResultListToResultEntityListMapperStubs.imdbIdStub
 import com.omdbifood.core.results.favorites.data.local.ResultListToResultEntityListMapperStubs.posterUrlStub
 import com.omdbifood.core.results.favorites.data.local.ResultListToResultEntityListMapperStubs.titleStub
-import com.omdbifood.core.results.favorites.data.local.ResultListToResultEntityListMapperStubs.typeStub
 import com.omdbifood.core.results.favorites.data.local.ResultListToResultEntityListMapperStubs.yearStub
 import junit.framework.TestCase
 import junit.framework.TestCase.assertTrue
@@ -16,7 +15,7 @@ class ResultListToResultEntityListMapperTest {
     private val mapper = ResultListToResultEntityListMapper()
 
     @Test
-    fun `should`() {
+    fun `should map list Result to List ResultEntity`() {
         // When
         val result = mapper.map(favoritesResultStubs)
 

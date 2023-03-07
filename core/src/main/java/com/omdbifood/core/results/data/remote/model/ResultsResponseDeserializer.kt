@@ -9,7 +9,8 @@ import kotlinx.serialization.encoding.Encoder
 object ResultsResponseDeserializer : KSerializer<ResultsResponse> {
 
     override val descriptor: SerialDescriptor = buildClassSerialDescriptor(
-        "ResultsResponse") {}
+        "ResultsResponse"
+    ) {}
 
     override fun deserialize(decoder: Decoder): ResultsResponse {
         return kotlin.runCatching {

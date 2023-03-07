@@ -8,7 +8,7 @@ internal object ResultsInteractorStubs {
     const val pageStub = 1
     private const val titleStub = "title"
     private const val yearStub = "year"
-    private const val imdbIdStub= "imdbId"
+    private const val imdbIdStub = "imdbId"
     private const val posterUrlStub = "posterUrl"
     val resultEntityStub = ResultEntity(
         title = titleStub,

@@ -66,7 +66,6 @@ internal class FavoritesViewModelTest {
     @Test
     fun `getFavorites should emit State results from UseCase`() = runTest {
         // Given
-        val drawableStub = mockk<Drawable>()
         every { favoritesUseCaseMock.getAllFavorites() } returns flowOf(listOf(resultEntityStub))
         every {
             resourceProviderMock.getDrawable(com.omdbifood.ui.R.drawable.ic_favorite)

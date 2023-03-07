@@ -2,7 +2,6 @@ package com.omdbifood.core.moviedetaills.data.local
 
 import com.omdbifood.common.mapper.Mapper
 import com.omdbifood.core.moviedetaills.data.local.model.MovieDetails
-import com.omdbifood.core.moviedetaills.data.local.model.Ratings
 import com.omdbifood.core.moviedetaills.data.remote.model.MovieDetailsResponse
 
 class MovieDetailsResponseToMovieDetailsMapper : Mapper<MovieDetailsResponse, MovieDetails> {

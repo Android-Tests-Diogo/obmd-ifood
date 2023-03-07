@@ -1,5 +1,5 @@
 package com.omdbifood.common.mapper
 
 interface Mapper<Input, Output> {
-    fun map(input: Input) : Output
+    fun map(input: Input): Output
 }

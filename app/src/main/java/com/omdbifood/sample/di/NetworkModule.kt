@@ -57,7 +57,7 @@ fun provideRetrofit(
     .client(okHttpClient)
     .build()
 
-fun getJson(): Json = Json{
+fun getJson(): Json = Json {
     encodeDefaults = true
     ignoreUnknownKeys = true
 }

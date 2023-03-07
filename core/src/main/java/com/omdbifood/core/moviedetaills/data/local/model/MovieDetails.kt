@@ -1,7 +1,6 @@
 package com.omdbifood.core.moviedetaills.data.local.model
 
 import androidx.room.ColumnInfo
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey

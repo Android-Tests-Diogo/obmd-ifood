@@ -11,5 +11,4 @@ class LocalTestRule : TestRule {
         RuleChain
             .outerRule(InstantTaskDispatcherRule())
             .apply(base, description)
-
 }

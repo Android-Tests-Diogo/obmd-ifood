@@ -9,7 +9,7 @@ internal object ResultsRemoteDataSourceImplStubs {
     const val pageStub = 1
     const val titleStub = "title"
     const val yearStub = "year"
-    const val imdbIdStub= "imdbId"
+    const val imdbIdStub = "imdbId"
     const val typeStub = "movie"
     const val posterUrlStub = "posterUrl"
     val resultResponseStub = ResultsSuccessResponse(

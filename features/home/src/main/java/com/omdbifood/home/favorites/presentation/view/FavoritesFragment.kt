@@ -59,7 +59,7 @@ class FavoritesFragment(
     }
 
     private fun onActionTrigger(action: FavoritesUIAction) {
-        when(action) {
+        when (action) {
             FavoritesUIAction.FavoritesChanged -> favoritesChange.invoke()
         }
     }

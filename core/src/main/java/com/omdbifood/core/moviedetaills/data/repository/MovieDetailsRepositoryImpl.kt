@@ -23,5 +23,3 @@ class MovieDetailsRepositoryImpl(
     private fun getFromRemote(movieId: String): Flow<MovieDetailsEntity> =
         remoteDataSource.getMovieDetails(movieId)
 }
-
-

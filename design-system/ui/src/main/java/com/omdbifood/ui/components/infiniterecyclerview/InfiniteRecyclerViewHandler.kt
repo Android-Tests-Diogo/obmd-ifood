@@ -7,7 +7,7 @@ import com.omdbifood.android.recyclerView.BaseViewHolder
 
 const val ITEMS_PER_PAGE = 10
 
-class InfiniteRecyclerViewHandler<I , VH : BaseViewHolder<I>>(
+class InfiniteRecyclerViewHandler<I, VH : BaseViewHolder<I>>(
     private val adapter: ListAdapter<I, VH>,
     private val layoutManager: LinearLayoutManager,
     private val reachedLastItemCallback: () -> Unit

@@ -10,7 +10,7 @@ internal object ResultsViewModelTestStubs {
     const val nextPageStub = 2
     private const val titleStub = "title"
     private const val yearStub = "year"
-    private const val imdbIdStub= "imdbId"
+    private const val imdbIdStub = "imdbId"
     private const val posterUrlStub = "posterUrl"
     val resultEntityStub = ResultEntity(
         title = titleStub,
@@ -21,5 +21,6 @@ internal object ResultsViewModelTestStubs {
         isFavorite = false
     )
     const val toastGenericMessageStub = "toastGenericMessageStub"
+
     object TestException : Exception()
 }

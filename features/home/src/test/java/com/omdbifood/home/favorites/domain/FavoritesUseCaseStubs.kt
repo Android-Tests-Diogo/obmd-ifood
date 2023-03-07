@@ -6,7 +6,7 @@ import com.omdbifood.core.results.domain.ResultTypeEntity
 internal object FavoritesUseCaseStubs {
     private const val titleStub = "title"
     private const val yearStub = "year"
-    const val imdbIdStub= "imdbId"
+    const val imdbIdStub = "imdbId"
     private const val posterUrlStub = "posterUrl"
     val resultEntityStub = ResultEntity(
         title = titleStub,

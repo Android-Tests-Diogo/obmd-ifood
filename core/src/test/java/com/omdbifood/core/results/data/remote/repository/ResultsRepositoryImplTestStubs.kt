@@ -9,7 +9,7 @@ internal object ResultsRepositoryImplTestStubs {
     const val nextPageStub = 2
     const val titleStub = "title"
     const val yearStub = "year"
-    const val imdbIdStub= "imdbId"
+    const val imdbIdStub = "imdbId"
     val typeStub = ResultTypeEntity.MOVIE
     const val posterUrlStub = "posterUrl"
     val resultResultEntityStub = listOf(

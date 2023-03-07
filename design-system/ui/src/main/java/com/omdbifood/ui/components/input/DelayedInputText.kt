@@ -11,7 +11,8 @@ import java.util.TimerTask
 const val DEFAULT_DELAY = 600L
 
 class DelayedInputText @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null
+    context: Context,
+    attrs: AttributeSet? = null
 ) : AppCompatEditText(context, attrs) {
 
     private var timer: Timer? = null
@@ -26,15 +27,18 @@ class DelayedInputText @JvmOverloads constructor(
 
         doAfterTextChanged {
             timer = Timer()
-            timer?.schedule(object : TimerTask() {
-                override fun run() {
-                    text?.let {
-                        if (it.isNotBlank()) {
-                            onUserStopType.invoke(text.toString())
+            timer?.schedule(
+                object : TimerTask() {
+                    override fun run() {
+                        text?.let {
+                            if (it.isNotBlank()) {
+                                onUserStopType.invoke(text.toString())
+                            }
                         }
                     }
-                }
-            }, customDelay?.invoke() ?: DEFAULT_DELAY)
+                },
+                customDelay?.invoke() ?: DEFAULT_DELAY
+            )
         }
     }
 }
